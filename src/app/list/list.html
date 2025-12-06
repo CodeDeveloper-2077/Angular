@@ -1,0 +1,18 @@
+<div>
+  <input
+    type="text"
+    [(ngModel)]="newItem"
+    placeholder="Enter text..."
+  />
+
+  <button (click)="addItem()">Add</button>
+
+  <ul style="margin-top: 10px;">
+    <li *ngFor="let item of items; let i = index">
+      {{ item }}
+      <a href="#" (click)="removeItem(i); $event.preventDefault()" style="margin-left: 10px; color:red;">
+        remove
+      </a>
+    </li>
+  </ul>
+</div>

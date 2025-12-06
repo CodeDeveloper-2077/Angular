@@ -1,0 +1,8 @@
+<div>
+  <button (click)="generate()">Generate number</button>
+
+  <div *ngIf="value !== null" [style.color]="color" style="margin-top: 10px;">
+    <strong>Generated number:</strong> {{ value }} <br />
+    {{ comment }}
+  </div>
+</div>

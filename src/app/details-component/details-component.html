@@ -1,0 +1,18 @@
+<h2>Person Details</h2>
+
+<div *ngIf="person; else notFound">
+  <p><strong>First Name:</strong> {{ person?.firstName }}</p>
+  <p><strong>Last Name:</strong> {{ person?.familyName }}</p>
+  <p><strong>Age:</strong> {{ person?.age }}</p>
+
+  <h3>Address</h3>
+  <p><strong>City:</strong> {{ person?.address?.city }}</p>
+  <p><strong>Street:</strong> {{ person?.address?.street }}</p>
+  <p><strong>Post Code:</strong> {{ person?.address?.postCode }}</p>
+</div>
+
+<ng-template #notFound>
+  <p>Person not found!</p>
+</ng-template>
+
+<button routerLink="/">Back to List</button>

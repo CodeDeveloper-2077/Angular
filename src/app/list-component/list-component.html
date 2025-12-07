@@ -1,0 +1,14 @@
+<h2>People List</h2>
+<button routerLink="/add">Add New Person</button>
+
+<ul>
+  <li *ngFor="let person of people; let i = index">
+    <strong>{{ person.firstName }} {{ person.familyName }}</strong> ({{ person.age }} years)
+    <br>
+    {{ person.address.city || '' }}, {{ person.address.street || '' }}, {{ person.address.postCode || '' }}
+    <br>
+    
+    <a [routerLink]="['/details', i]">View Details</a> |
+    <a href="#" (click)="delete(i); $event.preventDefault()">Delete</a>
+  </li>
+</ul>

@@ -1,0 +1,51 @@
+<div class="container">
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>People List</h2>
+    <a routerLink="/add" class="btn btn-success">
+      + Add Person
+    </a>
+  </div>
+
+  <table class="table table-striped" *ngIf="people.length > 0; else noData">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Family Name</th>
+        <th>Age</th>
+        <th>City</th>
+        <th>Street</th>
+        <th>Post Code</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let person of people">
+        <td>{{ person.id }}</td>
+        <td>{{ person.firstName }}</td>
+        <td>{{ person.familyName }}</td>
+        <td>{{ person.age }}</td>
+        <td>{{ person.address?.city }}</td>
+        <td>{{ person.address?.street }}</td>
+        <td>{{ person.address?.postCode }}</td>
+        <td>
+          <a [routerLink]="['/details', person.id]"
+             class="btn btn-sm btn-info me-2">
+            View
+          </a>
+          <button class="btn btn-sm btn-danger"
+                  (click)="delete(person.id!)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noData>
+    <p>No people found.</p>
+  </ng-template>
+
+</div>
